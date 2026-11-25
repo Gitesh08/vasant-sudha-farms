@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
     remotePatterns: [
+      { protocol: "https", hostname: "res.cloudinary.com" },
       { protocol: "https", hostname: "thumb.wikimedia.org" },
       { protocol: "https", hostname: "upload.wikimedia.org" },
     ],

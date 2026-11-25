@@ -1,6 +1,5 @@
 "use client";
 
-import { Calendar } from "lucide-react";
 import React, { useState } from "react";
 import { BookingSheet } from "@/components/booking/BookingSheet";
 import { WaveDivider } from "@/components/brand/WaveDivider";
@@ -15,7 +14,6 @@ import { ReviewsSection } from "@/components/site/ReviewsSection";
 import { StaysSection } from "@/components/site/StaysSection";
 import { StorySection } from "@/components/site/StorySection";
 import { VisitSection } from "@/components/site/VisitSection";
-import { Button } from "@/components/ui/Button";
 import { ScrollProgress } from "@/components/ui/Reveal";
 import { DEMO_STAYS } from "@/content/site";
 
@@ -36,7 +34,8 @@ export function SpaShell() {
       <Nav onOpenBooking={() => openBooking("stay")} />
 
       <main className="overflow-x-clip">
-        <Hero onOpenBooking={() => openBooking("stay")} />
+        <Hero onOpenBooking={(mode) => openBooking(mode ?? "stay")} />
+        <WaveDivider variant="calm" className="bg-foam" />
         <StorySection />
         <ExperiencesSection onPlanExperience={() => openBooking("picnic")} />
         <AmenitiesSection />
@@ -51,25 +50,7 @@ export function SpaShell() {
 
       <Footer />
 
-      {/* Sleek dark luxury mobile bar */}
-      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-foam/15 bg-navy-950/95 px-4 py-2.5 shadow-[0_-4px_24px_rgba(0,0,0,0.3)] backdrop-blur-md sm:hidden">
-        <div className="flex items-center justify-between gap-3">
-          <div className="min-w-0 pl-1 leading-tight">
-            <p className="truncate text-xs font-bold text-foam">Vasant Sudha Farms</p>
-            <p className="truncate text-[11px] font-semibold text-sun-300">
-              Nandgaon Beach · Boisar
-            </p>
-          </div>
-          <Button
-            variant="sun"
-            onClick={() => openBooking("stay")}
-            className="min-h-[38px] shrink-0 px-4 py-1.5 text-xs font-semibold tracking-wider uppercase shadow-md shadow-sun-600/30"
-          >
-            <Calendar className="h-3.5 w-3.5" />
-            <span>Enquire / Book</span>
-          </Button>
-        </div>
-      </div>
+
 
       <BookingSheet
         open={bookingOpen}

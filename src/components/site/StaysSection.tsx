@@ -42,9 +42,9 @@ export function StaysSection({ onSelectStay }: StaysSectionProps) {
               <div>
                 <Photo
                   slot={stay.imageSlot}
-                  shapeOverride="arch"
-                  aspectOverride="4 / 5"
+                  aspectOverride="4 / 3"
                   sizes="(max-width: 768px) 100vw, 30vw"
+                  className="rounded-2xl"
                 />
 
                 <span className="mt-5 inline-block text-[11px] font-bold tracking-widest text-palm-600 uppercase">

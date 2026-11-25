@@ -5,7 +5,7 @@ import { Wordmark } from "@/components/brand/Wordmark";
 import { SITE_FACTS } from "@/content/site";
 
 const FOOTER_LINKS = [
-  { href: "#estate", label: "The Estate" },
+  { href: "#farm", label: "The Farm" },
   { href: "#experiences", label: "Experiences" },
   { href: "#stays", label: "Accommodations" },
   { href: "#celebrations", label: "Celebrations" },

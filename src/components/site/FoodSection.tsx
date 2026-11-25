@@ -25,10 +25,8 @@ export function FoodSection() {
             <h2 className="text-h2 mt-3 text-foam">
               Konkan hospitality from morning tea to starlit banquets
             </h2>
-            <p className="mt-4 max-w-[52ch] text-base leading-relaxed text-foam/85 sm:text-lg">
-              Whether you are relaxing with a home-style coastal thali after a swim, enjoying
-              sundowner snacks under the palms, or hosting a celebration banquet for 800 guests,
-              every meal is freshly prepared on the estate.
+            <p className="mt-3 max-w-[46ch] text-base leading-relaxed text-foam/85">
+              Freshly prepared Konkan seafood, regional vegetarian thalis, and full banquet catering cooked on-site across the courtyard.
             </p>
 
             <div className="mt-8 border-t border-wave-300/20 pt-6">

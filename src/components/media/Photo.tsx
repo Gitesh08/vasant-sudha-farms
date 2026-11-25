@@ -19,7 +19,7 @@ const TINT_CLASSES: Record<PhotoTint, string> = {
 
 const SHAPE_CLASSES: Record<PhotoShape, string> = {
   arch: "rounded-t-[9999px] rounded-b-[20px]",
-  rect: "rounded-[20px]",
+  rect: "rounded-2xl",
   circle: "rounded-full",
 };
 
@@ -39,7 +39,7 @@ export function Photo({
   return (
     <div
       style={{ aspectRatio: aspect }}
-      className={`group/photo relative w-full overflow-hidden border ${TINT_CLASSES[info.tint]} ${SHAPE_CLASSES[shape]} ${className}`}
+      className={`group/photo relative w-full overflow-hidden ${SHAPE_CLASSES[shape]} ${className}`}
     >
       {info.src ? (
         <Image
@@ -54,7 +54,7 @@ export function Photo({
         <div
           role="img"
           aria-label={info.alt}
-          className="relative flex h-full w-full flex-col justify-end p-4 sm:p-5"
+          className={`relative flex h-full w-full flex-col justify-end border ${TINT_CLASSES[info.tint]} p-4 sm:p-5`}
         >
           {showCaption ? (
             <span className="relative z-10 inline-block max-w-full self-start rounded-full bg-foam/90 px-3 py-1 text-xs font-semibold text-navy-700">

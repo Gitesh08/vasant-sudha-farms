@@ -47,11 +47,18 @@ export function EventsSection({ onEnquire }: EventsSectionProps) {
     <section id="celebrations" className="overflow-x-clip bg-sand py-16 sm:py-24">
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="min-w-0 lg:col-span-5">
-            <GsapParallax yPercent={10} scaleFrom={1.05} className="rounded-[24px]">
+          <div className="min-w-0 space-y-4 lg:col-span-5">
+            <GsapParallax yPercent={8} scaleFrom={1.04} className="rounded-[24px]">
               <Photo
                 slot="EVENT-01"
-                aspectOverride="4 / 5"
+                aspectOverride="4 / 3"
+                sizes="(max-width: 1024px) 100vw, 42vw"
+              />
+            </GsapParallax>
+            <GsapParallax yPercent={12} scaleFrom={1.05} className="rounded-[24px]">
+              <Photo
+                slot="EVENT-02"
+                aspectOverride="16 / 10"
                 sizes="(max-width: 1024px) 100vw, 42vw"
               />
             </GsapParallax>
@@ -66,10 +73,8 @@ export function EventsSection({ onEnquire }: EventsSectionProps) {
               <h2 className="text-h2 mt-2 text-navy-700">
                 Grand coastal celebrations, held with effortless grace.
               </h2>
-              <p className="mt-4 max-w-[54ch] text-base leading-relaxed text-navy-900 sm:text-lg">
-                From milestone 50th birthdays and poolside sangeet evenings to full destination
-                weddings for 800 guests, Vasant Sudha Farms provides the expansive infrastructure,
-                green lawns, and bridal suites needed for an unforgettable occasion.
+              <p className="mt-3 max-w-[46ch] text-base leading-relaxed text-navy-800">
+                Celebration lawns and ground-floor indoor banquet facilities hosting up to 800 guests, with dedicated parking for 100+ cars and on-site bridal suites.
               </p>
             </GsapReveal>
 

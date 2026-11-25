@@ -1,7 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
 @theme {
-  /* Brand — sampled estimates from docs/design.md; verify against public/brand/ once supplied */
+  /* Brand palette matching public/brand/ */
   --color-navy-900: #0b2236;
   --color-navy-700: #0e4a72;
   --color-navy-500: #2f6f98;
@@ -23,9 +24,10 @@
   --color-line: #d9e4e8;
 
   /* Fonts */
-  --font-display: var(--font-fraunces), Georgia, serif;
-  --font-sans: var(--font-nunito-sans), system-ui, sans-serif;
-  --font-script: var(--font-yellowtail), cursive;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-script: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Radii */
   --radius-input: 14px;
@@ -53,29 +55,34 @@ body {
 /* Fluid type helpers */
 .text-display-xl {
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 2.2rem + 4.5vw, 7rem);
-  line-height: 1.02;
-  letter-spacing: -0.015em;
+  font-size: clamp(2.2rem, 1.6rem + 2.6vw, 4.25rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
 }
 
 .text-display-l {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 1.8rem + 2.6vw, 4.5rem);
-  line-height: 1.06;
-  letter-spacing: -0.015em;
+  font-size: clamp(1.85rem, 1.4rem + 1.8vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
 }
 
 .text-h2 {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 1.6rem + 1.4vw, 3rem);
-  line-height: 1.12;
-  letter-spacing: -0.015em;
+  font-size: clamp(1.5rem, 1.25rem + 1.1vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 .text-h3 {
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 1.35rem + 0.6vw, 1.875rem);
-  line-height: 1.2;
+  font-size: clamp(1.2rem, 1.05rem + 0.5vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
 }
 
 /* Subtle tide drift for hero waves */

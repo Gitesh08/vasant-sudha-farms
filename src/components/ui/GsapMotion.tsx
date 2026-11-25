@@ -146,7 +146,7 @@ export function GsapParallax({
 
   return (
     <div ref={wrapRef} className={`overflow-hidden ${className}`}>
-      <div ref={innerRef} className="will-change-transform">
+      <div ref={innerRef} className="h-full w-full will-change-transform">
         {children}
       </div>
     </div>

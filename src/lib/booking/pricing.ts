@@ -24,16 +24,12 @@ export function computeStayNights(params: {
 }
 
 export function computeStayQuote(params: {
-  stay?: unknown;
   checkIn: string;
   checkOut: string;
+  stay?: unknown;
   guests?: number;
-}): { nights: number; total: number } {
-  const { nights } = computeStayNights(params);
-  return {
-    nights,
-    total: 0,
-  };
+}): { nights: number } {
+  return computeStayNights(params);
 }
 
 export function generateDemoRef(): string {

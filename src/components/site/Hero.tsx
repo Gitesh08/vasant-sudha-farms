@@ -1,135 +1,142 @@
-import { ArrowRight, Calendar, Compass, MapPin } from "lucide-react";
+"use client";
+
 import Image from "next/image";
-import React from "react";
-import { Button } from "@/components/ui/Button";
-import { GsapHeroStage, GsapParallax } from "@/components/ui/GsapMotion";
-import { getImageSlot } from "@/content/images";
+import React, { useEffect, useState } from "react";
 
 interface HeroProps {
-  onOpenBooking: () => void;
+  onOpenBooking: (mode?: "stay" | "picnic" | "event") => void;
 }
 
+const HERO_SLIDES = [
+  {
+    src: "https://res.cloudinary.com/db7h39kx9/image/upload/v1795617591/hero-image-1_jowaea.jpg",
+    alt: "Coconut palms and lush greens at Vasant Sudha Farms",
+  },
+  {
+    src: "https://res.cloudinary.com/db7h39kx9/image/upload/v1795617598/swimming-pool_gksjwr.jpg",
+    alt: "Freshwater pool at Vasant Sudha Farms",
+  },
+  {
+    src: "https://res.cloudinary.com/db7h39kx9/image/upload/v1795617589/wedding-decor-image_ibeugl.jpg",
+    alt: "Elegantly decorated lawn at Vasant Sudha Farms",
+  },
+  {
+    src: "https://res.cloudinary.com/db7h39kx9/image/upload/v1795617588/property-view-evening_oghuzz.jpg",
+    alt: "Vasant Sudha Farms at golden hour",
+  },
+  {
+    src: "https://res.cloudinary.com/db7h39kx9/image/upload/v1795617593/property-view-1_dchzx1.jpg",
+    alt: "Open grounds and lawns at Vasant Sudha Farms",
+  },
+] as const;
+
 export function Hero({ onOpenBooking }: HeroProps) {
-  const heroImage = getImageSlot("HERO-01");
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section
       id="top"
-      className="relative flex min-h-[92vh] flex-col justify-between overflow-hidden bg-navy-950 text-foam sm:min-h-screen"
+      className="relative flex h-[100dvh] min-h-[640px] w-full flex-col justify-end overflow-hidden"
     >
-      {/* Cinematic Full-Bleed Image Backdrop */}
+      {/* Full-bleed background image slider covering behind navbar too */}
       <div className="absolute inset-0 z-0">
-        <GsapParallax
-          yPercent={12}
-          scaleFrom={1.08}
-          className="relative h-full w-full"
-        >
-          {heroImage.src ? (
+        {HERO_SLIDES.map((slide, idx) => (
+          <div
+            key={slide.src}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              idx === currentSlide ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
+          >
             <Image
-              src={heroImage.src}
-              alt={heroImage.alt}
+              src={slide.src}
+              alt={slide.alt}
               fill
-              priority
+              priority={idx === 0}
+              unoptimized
               sizes="100vw"
               className="object-cover object-center"
             />
-          ) : (
-            <div className="h-full w-full bg-navy-900" />
-          )}
-        </GsapParallax>
+          </div>
+        ))}
 
-        {/* Multi-layered cinematic gradient overlays */}
+        {/* Soft top gradient so navbar stays legible while trees show through */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 z-10 bg-gradient-to-t from-navy-950 via-navy-950/50 to-navy-950/75"
+          className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/50 via-black/20 to-transparent"
         />
+
+        {/* Bottom gradient so text has strong contrast */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 z-10 bg-navy-950/30 backdrop-brightness-95"
+          className="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-black/85 via-black/45 to-transparent"
         />
       </div>
 
-      {/* Main Hero Content */}
-      <GsapHeroStage className="relative z-20 mx-auto flex w-full max-w-[1200px] flex-1 flex-col justify-center px-4 py-20 sm:px-6 sm:py-28 lg:py-36">
-        <div className="max-w-[800px]">
-          <div data-hero-stagger className="inline-flex items-center gap-2 rounded-full border border-foam/20 bg-navy-950/60 px-4 py-1.5 text-xs font-semibold tracking-widest text-sun-300 uppercase backdrop-blur-md">
-            <MapPin className="h-3.5 w-3.5 text-sun-400" />
-            <span>House No. 638 · Nandgaon Beach, Boisar</span>
-          </div>
-
-          <h1
-            data-hero-stagger
-            className="text-display-xl mt-6 max-w-[18ch] font-normal tracking-tight text-foam"
-          >
-            A coastal estate under the palms.
-          </h1>
-
-          <p
-            data-hero-stagger
-            className="mt-6 max-w-[52ch] text-base font-light leading-relaxed text-foam/90 sm:text-xl"
-          >
-            Seaside cottages, a freshwater pool, and open green grounds for unhurried weekend
-            stays, shaded day picnics, and starlit gatherings of up to 800 guests.
+      {/* Hero content anchored towards bottom left */}
+      <div className="relative z-10 w-full px-5 pb-10 sm:px-10 sm:pb-14 lg:px-16">
+        <div className="max-w-[760px]">
+          {/* Location eyebrow */}
+          <p className="font-sans text-[11px] font-semibold tracking-[0.28em] text-white/60 uppercase mb-2 sm:mb-3">
+            Nandgaon Beach, Boisar
           </p>
 
-          <div data-hero-stagger className="mt-8 flex flex-wrap items-center gap-4 sm:gap-6">
-            <Button
-              variant="sun"
-              onClick={onOpenBooking}
-              className="px-7 py-3 text-xs font-semibold tracking-wider uppercase shadow-xl shadow-sun-600/25 sm:text-sm"
+          {/* Brand title in Playfair Display */}
+          <h1 className="font-serif font-normal leading-[1.05] text-white">
+            <span className="block text-[2.5rem] sm:text-[3.75rem] lg:text-[5rem] drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)]">
+              Vasant Sudha Farms
+            </span>
+            <span className="block mt-1 text-[1.35rem] sm:text-[1.95rem] lg:text-[2.4rem] italic font-light text-white/85 drop-shadow">
+              A place to truly unwind
+            </span>
+          </h1>
+
+          {/* Short, honest copy */}
+          <p className="mt-4 font-sans text-sm sm:text-base text-white/70 font-light leading-relaxed max-w-[46ch]">
+            Pool stays, shaded picnics, and open lawns for celebrations of every size.
+          </p>
+
+          {/* Action buttons */}
+          <div className="mt-6 sm:mt-7 flex flex-wrap gap-3">
+            <button
+              type="button"
+              onClick={() => onOpenBooking("stay")}
+              className="inline-flex h-11 sm:h-12 items-center rounded-full bg-white px-7 font-sans text-xs font-semibold tracking-wider text-navy-900 shadow-lg transition-all duration-200 hover:bg-white/90 active:scale-95 cursor-pointer"
             >
-              <Calendar className="h-4 w-4" />
-              <span>Plan your stay or event</span>
-              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-            </Button>
+              Plan a Visit
+            </button>
+
             <a
-              href="#estate"
-              className="inline-flex min-h-[44px] items-center gap-2 text-xs font-semibold text-foam/90 underline decoration-foam/30 underline-offset-4 transition-colors hover:text-sun-300 hover:decoration-sun-300 sm:text-sm"
+              href="#experiences"
+              className="inline-flex h-11 sm:h-12 items-center rounded-full border border-white/35 bg-white/10 px-7 font-sans text-xs font-semibold tracking-wider text-white backdrop-blur-sm transition-all duration-200 hover:bg-white/20 active:scale-95"
             >
-              <Compass className="h-4 w-4 text-sun-400" />
-              <span>Discover the estate</span>
+              Explore
             </a>
           </div>
         </div>
-      </GsapHeroStage>
+      </div>
 
-      {/* Floating Bottom Metadata Bar */}
-      <div className="relative z-20 mx-auto w-full max-w-[1200px] px-4 pb-8 sm:px-6 sm:pb-12">
-        <div className="grid grid-cols-3 gap-3 rounded-2xl border border-foam/15 bg-navy-950/60 p-4 text-foam backdrop-blur-md sm:gap-6 sm:p-5">
-          <div className="border-r border-foam/10 pr-2 sm:pr-4">
-            <p className="text-[10px] font-semibold tracking-widest text-sun-400 uppercase sm:text-xs">
-              Shoreline
-            </p>
-            <p className="mt-1 font-display text-base font-semibold text-foam sm:text-2xl">
-              3 min walk
-            </p>
-            <p className="mt-0.5 hidden text-[11px] text-foam/70 sm:block">
-              Steps to Nandgaon Beach
-            </p>
-          </div>
-          <div className="border-r border-foam/10 pr-2 sm:pr-4">
-            <p className="text-[10px] font-semibold tracking-widest text-sun-400 uppercase sm:text-xs">
-              The Grounds
-            </p>
-            <p className="mt-1 font-display text-base font-semibold text-foam sm:text-2xl">
-              Pool &amp; Orchards
-            </p>
-            <p className="mt-0.5 hidden text-[11px] text-foam/70 sm:block">
-              Coconut groves &amp; lawns
-            </p>
-          </div>
-          <div>
-            <p className="text-[10px] font-semibold tracking-widest text-sun-400 uppercase sm:text-xs">
-              Celebrations
-            </p>
-            <p className="mt-1 font-display text-base font-semibold text-foam sm:text-2xl">
-              Up to 800
-            </p>
-            <p className="mt-0.5 hidden text-[11px] text-foam/70 sm:block">
-              Lawn, hall &amp; parking
-            </p>
-          </div>
-        </div>
+      {/* Image slider dots on right bottom horizontally */}
+      <div className="absolute right-5 sm:right-8 bottom-6 sm:bottom-8 z-10 flex flex-row items-center gap-2">
+        {HERO_SLIDES.map((_, idx) => (
+          <button
+            key={idx}
+            type="button"
+            aria-label={`Go to slide ${idx + 1}`}
+            onClick={() => setCurrentSlide(idx)}
+            className={`rounded-full transition-all duration-300 cursor-pointer ${
+              idx === currentSlide
+                ? "w-6 h-1.5 bg-white"
+                : "w-1.5 h-1.5 bg-white/40 hover:bg-white/70"
+            }`}
+          />
+        ))}
       </div>
     </section>
   );

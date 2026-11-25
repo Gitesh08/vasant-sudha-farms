@@ -55,7 +55,7 @@ export const DEMO_STAYS: StayType[] = [
     id: "palm-villa-suite",
     slug: "palm-villa-suite",
     name: "The Palm Villa Suite",
-    tier: "Master Estate Villa",
+    tier: "Master Family Villa",
     summary:
       "A spacious two-bedroom air-conditioned suite opening onto the palm courtyard and pool, designed for family retreats and bridal preparations.",
     bedrooms: 2,
@@ -115,27 +115,27 @@ export const DEMO_STAYS: StayType[] = [
 
 export const EXPERIENCE_PILLARS = [
   {
-    title: "Day Picnics & Escapes",
-    subtitle: "From small family reunions to day-long group outings",
+    title: "Day Picnics & Leisure",
+    subtitle: "9:30 AM to 5:30 PM",
     description:
-      "Arrive in the morning to the shade of coconut palms. Spend the afternoon in the freshwater pool, enjoy authentic Konkan lunch, and take a sunset stroll to Nandgaon Beach.",
-    highlights: ["9:30 AM to 5:30 PM", "Pool & changing rooms", "Farm-fresh lunch & tea", "Lawn games & shade"],
+      "Spend the day under coconut palms with freshwater pool access, authentic Konkan lunch, and a sunset walk to Nandgaon Beach.",
+    highlights: ["Freshwater swimming pool", "Konkan lunch & high tea", "Changing facilities", "Lawn games & shade"],
     tag: "Day Outing",
   },
   {
-    title: "Private Stays & Weekend Retreats",
-    subtitle: "Unhurried nights under the coastal sky",
+    title: "Private Stays & Getaways",
+    subtitle: "Overnight coastal retreat",
     description:
-      "Escape the city rush. Enjoy private AC villas and garden cottages with private lockers, quiet morning birdsong, and starry night skies just two hours from Mumbai.",
-    highlights: ["AC cottages & suites", "Courtyard pool access", "Fresh home-style dining", "Steps to the shoreline"],
+      "Air-conditioned villas and garden cottages with private lockers, unhurried mornings, and starry coastal nights two hours from Mumbai.",
+    highlights: ["AC cottages & villas", "Courtyard pool access", "Private secure lockers", "Steps to shoreline"],
     tag: "Overnight Stay",
   },
   {
-    title: "Gatherings & Milestone Celebrations",
-    subtitle: "Birthdays, anniversaries, corporate offsites & banquets",
+    title: "Celebrations & Banquets",
+    subtitle: "Gatherings up to 800 guests",
     description:
-      "Celebrate life milestones surrounded by lush greenery. From intimate 20-guest birthdays to 800-person wedding banquets, the grounds adapt to your vision.",
-    highlights: ["Up to 800-guest lawn", "Ground-floor hall", "100+ car parking", "Catering & setup support"],
+      "Expansive celebration lawn and indoor banquet hall for birthdays, anniversaries, and destination weddings with 100+ car parking.",
+    highlights: ["800-capacity lawn & hall", "100+ car parking", "Bridal prep suites", "Full banqueting support"],
     tag: "Celebrations",
   },
 ] as const;
@@ -165,14 +165,14 @@ export const FAQS: FaqItem[] = [
     category: "general",
     question: "Who is Vasant Sudha Farms ideal for?",
     answer:
-      "The estate is crafted for everyone: couples seeking a quiet coastal retreat, families on weekend getaways, friend groups planning pool day picnics, and host families organizing celebrations or destination weddings up to 800 guests.",
+      "Vasant Sudha Farms is crafted for everyone: couples seeking a quiet coastal retreat, families on weekend getaways, friend groups planning pool day picnics, and host families organizing celebrations or destination weddings up to 800 guests.",
   },
   {
     id: "day-picnics",
     category: "picnics",
     question: "Do you offer day picnic packages without overnight stay?",
     answer:
-      "Yes. Day picnic guests enjoy estate access from 9:30 AM to 5:30 PM, including freshwater pool use, lawn games, shaded orchard seating, changing facilities, and freshly prepared Konkan lunch with evening tea.",
+      "Yes. Day picnic guests enjoy full farm access from 9:30 AM to 5:30 PM, including freshwater pool use, lawn games, shaded orchard seating, changing facilities, and freshly prepared Konkan lunch with evening tea.",
   },
   {
     id: "capacity-events",
@@ -191,9 +191,9 @@ export const FAQS: FaqItem[] = [
   {
     id: "beach-distance",
     category: "general",
-    question: "How close is the estate to Nandgaon Beach?",
+    question: "How close is the farm to Nandgaon Beach?",
     answer:
-      "The property is located at House No. 638 right by Nandgaon Beach in Boisar. The peaceful shoreline is a gentle 3-minute stroll from our gates, perfect for morning runs or sunset strolls.",
+      "The farm is located at House No. 638 right by Nandgaon Beach in Boisar. The peaceful shoreline is a gentle 3-minute stroll from our gates, perfect for morning runs or sunset strolls.",
   },
   {
     id: "food-options",
