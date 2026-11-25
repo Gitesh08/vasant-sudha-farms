@@ -6,6 +6,11 @@ interface WordmarkProps {
 }
 
 export function Wordmark({ tone = "light" }: WordmarkProps) {
+  const isHero = tone === "hero";
+  const src = isHero
+    ? "/brand/vasant-sudha-logo-white.png"
+    : "/brand/vasant-sudha-logo-retina.png";
+
   return (
     <span
       className={`inline-flex items-center select-none ${
@@ -13,13 +18,11 @@ export function Wordmark({ tone = "light" }: WordmarkProps) {
       }`}
     >
       <Image
-        src="/brand/vasant-sudha-logo.svg"
+        src={src}
         alt="Vasant Sudha Farms"
         width={140}
-        height={48}
-        className={`h-7 w-auto object-contain transition-all duration-300 sm:h-8 ${
-          tone === "hero" ? "brightness-0 invert drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]" : ""
-        }`}
+        height={76}
+        className="h-8 w-auto object-contain transition-opacity duration-300 sm:h-9"
         priority
       />
     </span>
