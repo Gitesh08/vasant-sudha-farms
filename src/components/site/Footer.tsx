@@ -36,10 +36,14 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-line pt-6 text-xs text-navy-500">
+        <div className="mt-10 border-t border-line pt-6 text-xs text-navy-500 space-y-1">
           <p>
             Demo concept built to show what a site for Vasant Sudha Farms could look like. Not the
             official website.
+          </p>
+          <p>
+            Sample scene photography via Wikimedia Commons (CC BY / CC BY-SA) — to be replaced with
+            property photos.
           </p>
         </div>
       </div>

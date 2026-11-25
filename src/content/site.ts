@@ -1,3 +1,6 @@
+export const DEMO_MODE = true;
+export const SHOW_IMAGE_CAPTIONS = false;
+
 export interface StayType {
   id: string;
   slug: string;

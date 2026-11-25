@@ -1,8 +1,8 @@
 import type { MetadataRoute } from "next";
-import { isDemoMode } from "@/lib/env";
+import { DEMO_MODE } from "@/content/site";
 
 export default function robots(): MetadataRoute.Robots {
-  if (isDemoMode()) {
+  if (DEMO_MODE) {
     return {
       rules: {
         userAgent: "*",

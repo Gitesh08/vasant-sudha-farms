@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Nunito_Sans, Yellowtail } from "next/font/google";
 import "@/styles/globals.css";
-import { isDemoMode } from "@/lib/env";
+import { DEMO_MODE } from "@/content/site";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   title: "Vasant Sudha Farms — Nandgaon Beach, Boisar",
   description:
     "Coastal farm resort at Nandgaon Beach, Boisar (Palghar, Maharashtra). Where Comfort Meets Nature.",
-  robots: isDemoMode()
+  robots: DEMO_MODE
     ? { index: false, follow: false }
     : { index: true, follow: true },
 };
@@ -38,7 +38,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const demo = isDemoMode();
+  const demo = DEMO_MODE;
 
   return (
     <html

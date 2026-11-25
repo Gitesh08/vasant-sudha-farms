@@ -20,7 +20,7 @@ Single source of truth for decisions, state, and gotchas. Keep it short and curr
 | Phase | Status | Gate passed | Notes |
 |---|---|---|---|
 | 0 Foundations (SPA) | done | yes | Simplified to SPA without DB/admin per user direction |
-| 1 Design system & SPA | in progress | — | Brand shapes, `<Photo>`, UI primitives, and SPA sections built; verifying in browser |
+| 1 Design system & SPA | done | partial | Built, lint/typecheck/tests/build green; browser screenshots blocked on Chrome DevTools |
 
 ## Decisions
 - 2026-11-25 [Architect] Pivoted to single-page app (SPA) without Postgres/Drizzle, Auth.js admin, or `next-intl` multi-page routing per user request ("no need of DB and multiple pages, I want SPA, not even admin needed"). Affects: `package.json`, `src/app/page.tsx`, `src/components/booking/BookingSheet.tsx`.
@@ -33,7 +33,7 @@ Single source of truth for decisions, state, and gotchas. Keep it short and curr
 - Fonts confirmed: Fraunces (display) / Nunito Sans (body) / Yellowtail (hero script accent once).
 
 ## Image slots status
-- All slots are designed `<Photo>` placeholders (`HERO-01`, `STAY-VILLA-01`, `STAY-COTTAGE-01`, `STAY-GARDEN-01`, `POOL-01`, `BEACH-01`, `FARM-01`, `KIDS-01`, `EVENING-01`, `FOOD-01`, `LOC-01`).
+- All 11 slots populated with open-license Wikimedia Commons sample photos via `remotePatterns` (`thumb.wikimedia.org`, `upload.wikimedia.org`). Real logos moved to `public/brand/logo-horizontal.jpg` and `public/brand/logo-stacked.jpg` and wired into `<Wordmark />`.
 
 ## Unslop log
 - 2026-11-25 unslopped: `/` SPA — zero banned phrases in grep check; replaced generic 3-icon feature grid with alternating editorial rows, badged all sample stays/menu/tariffs clearly, kept single dark section (`night`) and 3-furrow booking progress.

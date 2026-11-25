@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { getImageSlot, type PhotoShape, type PhotoTint } from "@/content/images";
-import { clientEnv } from "@/lib/env";
+import { SHOW_IMAGE_CAPTIONS } from "@/content/site";
 
 interface PhotoProps {
   slot: string;
@@ -34,7 +34,7 @@ export function Photo({
   const info = getImageSlot(slot);
   const shape = shapeOverride ?? info.shape;
   const aspect = aspectOverride ?? info.aspect;
-  const showCaption = clientEnv.NEXT_PUBLIC_SHOW_PLACEHOLDER_CAPTIONS;
+  const showCaption = SHOW_IMAGE_CAPTIONS;
 
   return (
     <div
