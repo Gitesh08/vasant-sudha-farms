@@ -1,31 +1,15 @@
-import type { StayType } from "@/content/site";
-import { eachNight, isWeekendNight, toDateString, type DateString } from "@/lib/dates";
+import { eachNight, toDateString } from "@/lib/dates";
 
-export interface NightLine {
-  date: DateString;
-  isWeekend: boolean;
-  rate: number;
-}
-
-export interface QuoteBreakdown {
+export interface StayDatesSummary {
   nights: number;
-  lines: NightLine[];
-  roomSubtotal: number;
-  extraGuests: number;
-  extraGuestTotal: number;
-  total: number;
+  checkInFormatted: string;
+  checkOutFormatted: string;
 }
 
-/**
- * Computes a transparent nightly quote for a stay in Asia/Kolkata.
- * Nights are half-open [checkIn, checkOut). Fri & Sat are weekend nights.
- */
-export function computeStayQuote(params: {
-  stay: StayType;
+export function computeStayNights(params: {
   checkIn: string;
   checkOut: string;
-  guests: number;
-}): QuoteBreakdown {
+}): { nights: number } {
   const ci = toDateString(params.checkIn);
   const co = toDateString(params.checkOut);
   const nightsList = eachNight(ci, co);
@@ -34,26 +18,8 @@ export function computeStayQuote(params: {
     throw new Error("Check-out must be after check-in.");
   }
 
-  const lines: NightLine[] = nightsList.map((date) => {
-    const weekend = isWeekendNight(date);
-    return {
-      date,
-      isWeekend: weekend,
-      rate: weekend ? params.stay.rateWeekend : params.stay.rateWeekday,
-    };
-  });
-
-  const roomSubtotal = lines.reduce((sum, line) => sum + line.rate, 0);
-  const extraGuests = Math.max(0, params.guests - params.stay.baseOccupancy);
-  const extraGuestTotal = extraGuests * params.stay.extraGuestFee * lines.length;
-
   return {
-    nights: lines.length,
-    lines,
-    roomSubtotal,
-    extraGuests,
-    extraGuestTotal,
-    total: roomSubtotal + extraGuestTotal,
+    nights: nightsList.length,
   };
 }
 

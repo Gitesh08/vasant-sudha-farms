@@ -15,9 +15,9 @@ export function Wordmark({ tone = "light" }: WordmarkProps) {
       <Image
         src="/brand/vasant-sudha-logo.svg"
         alt="Vasant Sudha Farms"
-        width={150}
-        height={90}
-        className="h-9 w-auto object-contain sm:h-11"
+        width={140}
+        height={48}
+        className="h-7 w-auto object-contain sm:h-8"
         priority
       />
     </span>

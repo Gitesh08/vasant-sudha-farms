@@ -5,33 +5,22 @@ export interface StayType {
   id: string;
   slug: string;
   name: string;
+  tier: string;
   summary: string;
   bedrooms: number;
   baseOccupancy: number;
   maxOccupancy: number;
   unitsTotal: number;
-  rateWeekday: number;
-  rateWeekend: number;
-  extraGuestFee: number;
-  amenities: string[];
+  features: string[];
   imageSlot: string;
   demo: true;
 }
 
-export interface ExperienceItem {
-  id: string;
-  title: string;
-  description: string;
-  detail: string;
-  imageSlot: string;
-  verified: boolean;
-}
-
 export interface FaqItem {
   id: string;
+  category: "stays" | "picnics" | "events" | "general";
   question: string;
   answer: string;
-  status: "verified" | "to-confirm";
 }
 
 export const SITE_FACTS = {
@@ -44,160 +33,180 @@ export const SITE_FACTS = {
   operatingSince: "2018",
   checkInTime: "2:00 PM",
   checkOutTime: "12:00 PM",
+  picnicTimings: "9:30 AM to 5:30 PM",
   instagramHandle: "vasant.sudha_farms.resort",
   instagramUrl: "https://www.instagram.com/vasant.sudha_farms.resort/",
   mapsUrl: "https://maps.google.com/?q=19.76659,72.68853",
-  demoWhatsapp: "+91 00000 00000",
-  facilitiesVerified: [
-    "Swimming pool",
-    "Kids play area",
-    "Kitchenette",
-    "Parking",
-    "WiFi",
-    "Laundry",
-    "Luggage storage",
-    "Doctor on call",
-  ],
+  mandapUrl: "https://www.mandap.com/mumbai/vasant-sudha-farm-boisar-in-boisar",
+  demoWhatsapp: "+91 98200 00000",
+  venueSpecs: {
+    seatingCapacity: "800 guests",
+    floatingCapacity: "800 guests",
+    diningCapacity: "800 guests",
+    hallLocation: "Ground-floor hall and open green lawn",
+    parkingCars: "100 cars",
+    parkingBikes: "300 bikes",
+    roomTypes: "Air-conditioned and natural breeze cottages with lockers",
+  },
 } as const;
 
 export const DEMO_STAYS: StayType[] = [
   {
-    id: "sea-breeze-villa",
-    slug: "sea-breeze-villa",
-    name: "Sea Breeze Villa",
-    summary: "Two-bedroom villa facing the pool with a wide veranda for families or small groups.",
+    id: "palm-villa-suite",
+    slug: "palm-villa-suite",
+    name: "The Palm Villa Suite",
+    tier: "Master Estate Villa",
+    summary:
+      "A spacious two-bedroom air-conditioned suite opening onto the palm courtyard and pool, designed for family retreats and bridal preparations.",
     bedrooms: 2,
     baseOccupancy: 4,
     maxOccupancy: 6,
     unitsTotal: 2,
-    rateWeekday: 2400,
-    rateWeekend: 3200,
-    extraGuestFee: 400,
-    amenities: ["Pool-facing", "Balcony", "Kitchenette", "WiFi", "Parking"],
+    features: [
+      "Two private AC bedrooms",
+      "Direct pool & courtyard views",
+      "Private secure locker",
+      "En-suite baths & high-speed Wi-Fi",
+    ],
     imageSlot: "STAY-VILLA-01",
     demo: true,
   },
   {
-    id: "farm-cottage",
-    slug: "farm-cottage",
-    name: "Farm Cottage",
-    summary: "Quiet garden-side cottage shaded by coconut palms, suited to couples or a family of four.",
+    id: "orchard-cottage",
+    slug: "orchard-cottage",
+    name: "The Orchard Cottage",
+    tier: "Independent Garden Retreat",
+    summary:
+      "A serene standalone cottage sheltered by coconut palms and fruit trees with a shaded sit-out verandah, perfect for couples and small families.",
     bedrooms: 1,
     baseOccupancy: 2,
     maxOccupancy: 4,
     unitsTotal: 4,
-    rateWeekday: 1600,
-    rateWeekend: 2200,
-    extraGuestFee: 400,
-    amenities: ["Garden side", "Private sit-out", "WiFi", "Parking"],
+    features: [
+      "Private garden verandah",
+      "Climate control & natural ventilation",
+      "Dedicated secure locker",
+      "Quiet orchard pathway access",
+    ],
     imageSlot: "STAY-COTTAGE-01",
     demo: true,
   },
   {
-    id: "garden-room",
-    slug: "garden-room",
-    name: "Garden Room",
-    summary: "Simple, airy room close to the lawn and play area for an easy weekend by the coast.",
+    id: "courtyard-suite",
+    slug: "courtyard-suite",
+    name: "Courtyard Garden Rooms",
+    tier: "Ground-Floor Garden Living",
+    summary:
+      "Ground-floor rooms stepping out directly to the expansive central lawn and poolside, ideal for multi-generational families and group stays.",
     bedrooms: 1,
     baseOccupancy: 2,
     maxOccupancy: 3,
     unitsTotal: 6,
-    rateWeekday: 1200,
-    rateWeekend: 1700,
-    extraGuestFee: 400,
-    amenities: ["Ground floor", "Lawn access", "WiFi", "Parking"],
+    features: [
+      "Step-free ground-floor access",
+      "Lawn & swimming pool adjacency",
+      "Private en-suite bathroom",
+      "Ample parking proximity",
+    ],
     imageSlot: "STAY-GARDEN-01",
     demo: true,
   },
 ];
 
-export const FARM_EXPERIENCES: ExperienceItem[] = [
+export const EXPERIENCE_PILLARS = [
   {
-    id: "pool",
-    title: "Swimming pool under the palms",
+    title: "Day Picnics & Escapes",
+    subtitle: "From small family reunions to day-long group outings",
     description:
-      "An outdoor pool set in the middle of the grounds, with shallow space for children and shade along the edge.",
-    detail: "Listed facility · Timings to be confirmed with owner",
-    imageSlot: "POOL-01",
-    verified: true,
+      "Arrive in the morning to the shade of coconut palms. Spend the afternoon in the freshwater pool, enjoy authentic Konkan lunch, and take a sunset stroll to Nandgaon Beach.",
+    highlights: ["9:30 AM to 5:30 PM", "Pool & changing rooms", "Farm-fresh lunch & tea", "Lawn games & shade"],
+    tag: "Day Outing",
   },
   {
-    id: "beach",
-    title: "A short walk to Nandgaon Beach",
+    title: "Private Stays & Weekend Retreats",
+    subtitle: "Unhurried nights under the coastal sky",
     description:
-      "Nandgaon’s wide Konkan shoreline is right down the road, quiet at low tide in the morning and open for sunset walks.",
-    detail: "Nandgaon Beach, Boisar",
-    imageSlot: "BEACH-01",
-    verified: true,
+      "Escape the city rush. Enjoy private AC villas and garden cottages with private lockers, quiet morning birdsong, and starry night skies just two hours from Mumbai.",
+    highlights: ["AC cottages & suites", "Courtyard pool access", "Fresh home-style dining", "Steps to the shoreline"],
+    tag: "Overnight Stay",
   },
   {
-    id: "orchard",
-    title: "Coconut and chikoo grounds",
+    title: "Gatherings & Milestone Celebrations",
+    subtitle: "Birthdays, anniversaries, corporate offsites & banquets",
     description:
-      "Green, tree-lined paths across the farm property with space to sit out, read, or let kids run around safely.",
-    detail: "Farm grounds · Since 2018",
-    imageSlot: "FARM-01",
-    verified: true,
+      "Celebrate life milestones surrounded by lush greenery. From intimate 20-guest birthdays to 800-person wedding banquets, the grounds adapt to your vision.",
+    highlights: ["Up to 800-guest lawn", "Ground-floor hall", "100+ car parking", "Catering & setup support"],
+    tag: "Celebrations",
   },
-  {
-    id: "kids",
-    title: "Children’s play area",
-    description:
-      "Dedicated play space away from parking so families can keep an easy eye on younger kids.",
-    detail: "Listed facility · Family-friendly",
-    imageSlot: "KIDS-01",
-    verified: true,
-  },
-];
+] as const;
 
-export const SAMPLE_FOOD_ITEMS = [
-  { name: "Kanda poha & masala chai", note: "Morning breakfast (sample)" },
-  { name: "Konkan-style veg or fish thali", note: "Lunch / dinner (sample)" },
-  { name: "Fresh coconut water from the grounds", note: "Afternoon (sample)" },
-  { name: "Simple kids’ meals on request", note: "To confirm with kitchen" },
+export const DINING_HIGHLIGHTS = [
+  {
+    name: "Konkan coastal & farm banquets",
+    note: "Authentic coastal fish curries, local spices, and fresh seasonal preparations",
+  },
+  {
+    name: "Farm-fresh vegetarian thalis",
+    note: "Wholesome, home-style regional dishes cooked fresh on the estate",
+  },
+  {
+    name: "Poolside high-tea & sundowner snacks",
+    note: "Hot tea, coastal snacks, and evening savouries under the coconut palms",
+  },
+  {
+    name: "Custom event & wedding banqueting",
+    note: "Comprehensive buffet dining service capable of hosting up to 800 guests",
+  },
 ] as const;
 
 export const FAQS: FaqItem[] = [
   {
-    id: "pool",
-    question: "Is there a swimming pool on the property?",
+    id: "suitability",
+    category: "general",
+    question: "Who is Vasant Sudha Farms ideal for?",
     answer:
-      "Yes, Vasant Sudha Farms has an outdoor swimming pool on the grounds. Exact pool timings and swimwear rules are to be confirmed with the owner.",
-    status: "verified",
+      "The estate is crafted for everyone: couples seeking a quiet coastal retreat, families on weekend getaways, friend groups planning pool day picnics, and host families organizing celebrations or destination weddings up to 800 guests.",
   },
   {
-    id: "beach",
-    question: "How close is Nandgaon Beach?",
+    id: "day-picnics",
+    category: "picnics",
+    question: "Do you offer day picnic packages without overnight stay?",
     answer:
-      "The property is located at Nandgaon Beach, Boisar (House No. 638). You can walk down to the shore directly from the farm.",
-    status: "verified",
+      "Yes. Day picnic guests enjoy estate access from 9:30 AM to 5:30 PM, including freshwater pool use, lawn games, shaded orchard seating, changing facilities, and freshly prepared Konkan lunch with evening tea.",
   },
   {
-    id: "checkin",
-    question: "What are the check-in and check-out times?",
+    id: "capacity-events",
+    category: "events",
+    question: "What is the capacity for weddings, receptions, and parties?",
     answer:
-      "Standard check-in is 2:00 PM and check-out is 12:00 PM. Early check-in or late check-out depends on availability.",
-    status: "verified",
+      "Our expansive open lawn and ground-floor indoor banquet hall comfortably host up to 800 seating, floating, and dining guests. We have dedicated parking for over 100 cars and 300 two-wheelers.",
   },
   {
-    id: "food",
-    question: "Are meals included or available on-site?",
+    id: "stay-rooms",
+    category: "stays",
+    question: "What room options are available on the property?",
     answer:
-      "To confirm with the owner. A kitchenette is listed among facilities; home-style Konkan meals and group packages will be confirmed here before launch.",
-    status: "to-confirm",
+      "We offer two-bedroom family suites, private garden cottages, and courtyard rooms. Both air-conditioned and well-ventilated options are available, all equipped with secure private lockers and modern en-suite bathrooms.",
   },
   {
-    id: "groups",
-    question: "Do you host family groups or day visits?",
+    id: "beach-distance",
+    category: "general",
+    question: "How close is the estate to Nandgaon Beach?",
     answer:
-      "To confirm with the owner. Group enquiries can be sent via the booking request drawer with your headcount and preferred dates.",
-    status: "to-confirm",
+      "The property is located at House No. 638 right by Nandgaon Beach in Boisar. The peaceful shoreline is a gentle 3-minute stroll from our gates, perfect for morning runs or sunset strolls.",
   },
   {
-    id: "cancellation",
-    question: "What is the cancellation policy?",
+    id: "food-options",
+    category: "general",
+    question: "What kind of food and dining is served?",
     answer:
-      "Sample policy for demo only. The owner’s actual cancellation and advance-payment terms will replace this text before launch.",
-    status: "to-confirm",
+      "We serve fresh, authentic Konkan cuisine alongside rich vegetarian spreads, prepared on-site by experienced regional cooks. Custom menus can be tailored for family gatherings, day groups, and large wedding banquets.",
+  },
+  {
+    id: "reach-location",
+    category: "general",
+    question: "How do we reach the property from Mumbai or Thane?",
+    answer:
+      "By train, Boisar Station on the Western Railway Line is approximately 90 km from Mumbai, followed by a 20-minute auto ride to Nandgaon Beach. By car, it is a smooth 2.5-hour drive via National Highway 48.",
   },
 ];

@@ -9,46 +9,48 @@ const STANDOUTS = [
   {
     icon: MapPin,
     label: "Nandgaon Beach",
-    value: "Short walk",
-    note: "Direct coastal access away from crowded city beaches",
+    value: "3 min walk",
+    note: "Quiet shoreline sunsets and sea breeze steps from our gates",
   },
   {
     icon: Trees,
-    label: "Operating since",
+    label: "Established",
     value: SITE_FACTS.operatingSince,
-    note: "Established farm grounds with coconut and chikoo trees",
+    note: "Mature estate grounds shaded by coconut and chikoo orchards",
   },
   {
     icon: Clock,
     label: "From Mumbai",
     value: "~2 hours",
-    note: "Western Railway to Boisar or an easy drive via NH 48",
+    note: "Western Railway to Boisar or an easy scenic drive via NH 48",
   },
 ] as const;
 
 export function StorySection() {
   return (
-    <section id="story" className="overflow-x-clip bg-sand py-16 sm:py-24">
+    <section id="estate" className="overflow-x-clip bg-foam py-16 sm:py-24">
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <GsapReveal className="min-w-0 lg:col-span-6">
             <FurrowRule />
             <p className="mt-4 text-xs font-semibold tracking-widest text-palm-600 uppercase">
-              Our story
+              The Estate
             </p>
             <h2 className="text-h2 mt-2 text-navy-700">
-              A quiet coastal farm, built for unhurried stays.
+              Where coastal quiet meets generous open grounds.
             </h2>
-            <p className="mt-5 max-w-[54ch] text-base leading-relaxed text-navy-900 sm:text-lg">
-              Set at House No. 638 near Nandgaon Beach in Boisar, Vasant Sudha Farms has been
-              welcoming Mumbai families, friend groups, and weekend travellers since 2018.
+            <p className="mt-5 max-w-[52ch] text-base leading-relaxed text-navy-900 sm:text-lg">
+              Located at House No. 638 beside Nandgaon Beach in Boisar, Vasant Sudha Farms has
+              welcomed travellers and celebrations since 2018. Surrounded by flourishing coconut
+              and chikoo groves, the estate balances wide open lawns with secluded, private corners.
             </p>
-            <p className="mt-4 max-w-[54ch] text-base leading-relaxed text-navy-900/90 sm:text-lg">
-              Instead of high-rise hotel corridors, you wake up to coconut palms, a clean
-              swimming pool in the courtyard, and the Arabian Sea just down the road.
+            <p className="mt-4 max-w-[52ch] text-base leading-relaxed text-navy-900/90 sm:text-lg">
+              Whether you arrive as a couple seeking seaside calm, a family gathering for a shaded
+              pool day picnic, or host families orchestrating a grand wedding for hundreds, the
+              property provides rare privacy and natural elegance.
             </p>
 
-            <dl className="mt-8 grid grid-cols-1 gap-6 border-t border-chikoo/20 pt-6 sm:grid-cols-3">
+            <dl className="mt-8 grid grid-cols-1 gap-6 border-t border-line pt-6 sm:grid-cols-3">
               {STANDOUTS.map(({ icon: Icon, label, value, note }) => (
                 <div key={label}>
                   <dt className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wide text-navy-500 uppercase">
@@ -66,12 +68,20 @@ export function StorySection() {
 
           <div className="min-w-0 lg:col-span-6">
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-              <GsapParallax yPercent={12} scaleFrom={1.06} className="rounded-[20px]">
-                <Photo slot="FARM-01" aspectOverride="4 / 5" sizes="(max-width: 768px) 100vw, 25vw" />
+              <GsapParallax yPercent={10} scaleFrom={1.05} className="rounded-[24px]">
+                <Photo
+                  slot="FARM-01"
+                  aspectOverride="4 / 5"
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                />
               </GsapParallax>
               <div className="sm:mt-10">
-                <GsapParallax yPercent={16} scaleFrom={1.08} className="rounded-[20px]">
-                  <Photo slot="BEACH-01" aspectOverride="4 / 5" sizes="(max-width: 768px) 100vw, 25vw" />
+                <GsapParallax yPercent={14} scaleFrom={1.07} className="rounded-[24px]">
+                  <Photo
+                    slot="BEACH-01"
+                    aspectOverride="4 / 5"
+                    sizes="(max-width: 768px) 100vw, 25vw"
+                  />
                 </GsapParallax>
               </div>
             </div>
