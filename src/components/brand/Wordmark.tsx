@@ -2,28 +2,22 @@ import Image from "next/image";
 import React from "react";
 
 interface WordmarkProps {
-  variant?: "horizontal" | "stacked";
   tone?: "light" | "dark";
 }
 
-export function Wordmark({ variant = "horizontal", tone = "light" }: WordmarkProps) {
-  const isStacked = variant === "stacked";
-  const src = isStacked ? "/brand/logo-stacked.jpg" : "/brand/logo-horizontal.jpg";
-
+export function Wordmark({ tone = "light" }: WordmarkProps) {
   return (
     <span
       className={`inline-flex items-center select-none ${
-        tone === "dark" ? "rounded-xl bg-foam px-2.5 py-1" : ""
+        tone === "dark" ? "rounded-lg bg-foam px-2 py-0.5" : ""
       }`}
     >
       <Image
-        src={src}
+        src="/brand/vasant-sudha-logo.svg"
         alt="Vasant Sudha Farms"
-        width={isStacked ? 120 : 184}
-        height={isStacked ? 120 : 62}
-        className={`h-auto object-contain ${
-          isStacked ? "w-24 sm:w-28" : "w-36 sm:w-44"
-        } ${tone === "light" ? "mix-blend-multiply" : ""}`}
+        width={150}
+        height={90}
+        className="h-9 w-auto object-contain sm:h-11"
         priority
       />
     </span>

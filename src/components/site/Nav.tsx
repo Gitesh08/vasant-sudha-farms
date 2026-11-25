@@ -1,5 +1,6 @@
 "use client";
 
+import { Calendar, Menu } from "lucide-react";
 import React, { useState } from "react";
 import { Wordmark } from "@/components/brand/Wordmark";
 import { Button } from "@/components/ui/Button";
@@ -10,11 +11,12 @@ interface NavProps {
 }
 
 const NAV_LINKS = [
-  { href: "#farm", label: "The farm" },
+  { href: "#story", label: "Story" },
+  { href: "#amenities", label: "Amenities" },
   { href: "#stays", label: "Stays" },
-  { href: "#evenings", label: "Evenings & food" },
-  { href: "#visit", label: "Plan your visit" },
-  { href: "#faq", label: "FAQ" },
+  { href: "#events", label: "Events" },
+  { href: "#food", label: "Food" },
+  { href: "#visit", label: "Visit" },
 ] as const;
 
 export function Nav({ onOpenBooking }: NavProps) {
@@ -22,17 +24,17 @@ export function Nav({ onOpenBooking }: NavProps) {
 
   return (
     <header className="sticky top-0 z-30 border-b border-line bg-foam/95 backdrop-blur-[2px]">
-      <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-4 px-5 py-3">
+      <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-3 px-4 py-1.5 sm:px-6">
         <a href="#top" className="rounded-lg focus-visible:outline-offset-4">
           <Wordmark />
         </a>
 
-        <nav aria-label="Primary" className="hidden items-center gap-6 md:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-6 lg:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="py-2 text-sm font-semibold text-navy-700 transition-colors hover:text-sun-600"
+              className="py-1.5 text-sm font-semibold text-navy-700 transition-colors hover:text-sun-600"
             >
               {link.label}
             </a>
@@ -40,23 +42,21 @@ export function Nav({ onOpenBooking }: NavProps) {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button variant="sun" onClick={onOpenBooking} className="hidden sm:inline-flex">
-            Check dates
+          <Button
+            variant="sun"
+            onClick={onOpenBooking}
+            className="hidden min-h-[40px] px-4 py-1.5 text-sm sm:inline-flex"
+          >
+            <Calendar className="h-3.5 w-3.5" />
+            <span>Check dates</span>
           </Button>
           <button
             type="button"
             aria-label="Open navigation menu"
             onClick={() => setMenuOpen(true)}
-            className="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-line text-navy-700 md:hidden"
+            className="inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-line text-navy-700 transition-colors hover:bg-sand lg:hidden"
           >
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-              <path
-                d="M3 6h14M3 10h14M3 14h10"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            </svg>
+            <Menu className="h-5 w-5" />
           </button>
         </div>
       </div>
@@ -81,7 +81,8 @@ export function Nav({ onOpenBooking }: NavProps) {
               onOpenBooking();
             }}
           >
-            Check dates
+            <Calendar className="h-4 w-4" />
+            <span>Check dates</span>
           </Button>
         </nav>
       </Sheet>

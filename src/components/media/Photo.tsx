@@ -39,7 +39,7 @@ export function Photo({
   return (
     <div
       style={{ aspectRatio: aspect }}
-      className={`relative w-full overflow-hidden border ${TINT_CLASSES[info.tint]} ${SHAPE_CLASSES[shape]} ${className}`}
+      className={`group/photo relative w-full overflow-hidden border ${TINT_CLASSES[info.tint]} ${SHAPE_CLASSES[shape]} ${className}`}
     >
       {info.src ? (
         <Image
@@ -48,7 +48,7 @@ export function Photo({
           fill
           priority={priority}
           sizes={sizes}
-          className="object-cover"
+          className="object-cover transition-transform duration-700 ease-out group-hover/photo:scale-[1.04]"
         />
       ) : (
         <div
@@ -56,27 +56,6 @@ export function Photo({
           aria-label={info.alt}
           className="relative flex h-full w-full flex-col justify-end p-4 sm:p-5"
         >
-          {/* Faint coastal wave lines for designed placeholder */}
-          <svg
-            viewBox="0 0 320 120"
-            fill="none"
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 opacity-30"
-          >
-            <path
-              d="M0 40 C 80 20, 160 60, 240 40 C 280 30, 300 35, 320 40"
-              stroke="#0E4A72"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-            <path
-              d="M0 64 C 80 44, 160 84, 240 64 C 280 54, 300 59, 320 64"
-              stroke="#1B8DBE"
-              strokeWidth="1.2"
-              strokeLinecap="round"
-            />
-          </svg>
-
           {showCaption ? (
             <span className="relative z-10 inline-block max-w-full self-start rounded-full bg-foam/90 px-3 py-1 text-xs font-semibold text-navy-700">
               {info.caption}

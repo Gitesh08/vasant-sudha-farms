@@ -125,7 +125,7 @@ export const FARM_EXPERIENCES: ExperienceItem[] = [
     id: "beach",
     title: "A short walk to Nandgaon Beach",
     description:
-      "Nandgaon’s wide Konkan shoreline is right down the road — quiet at low tide in the morning and open for sunset walks.",
+      "Nandgaon’s wide Konkan shoreline is right down the road, quiet at low tide in the morning and open for sunset walks.",
     detail: "Nandgaon Beach, Boisar",
     imageSlot: "BEACH-01",
     verified: true,
@@ -197,7 +197,7 @@ export const FAQS: FaqItem[] = [
     id: "cancellation",
     question: "What is the cancellation policy?",
     answer:
-      "Sample policy for demo only — the owner’s actual cancellation and advance-payment terms will replace this text before launch.",
+      "Sample policy for demo only. The owner’s actual cancellation and advance-payment terms will replace this text before launch.",
     status: "to-confirm",
   },
 ];

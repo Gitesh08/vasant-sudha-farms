@@ -111,6 +111,15 @@ export const IMAGE_MANIFEST: Record<string, ImageSlot> = {
     caption: "LOC-01 · Approach road (sample photo)",
     tint: "wave",
   },
+  "EVENT-01": {
+    id: "EVENT-01",
+    src: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Chairs_are_neatly_arranged_in_a_garden_for_an_outdoor_wedding_ceremony.jpg/1920px-Chairs_are_neatly_arranged_in_a_garden_for_an_outdoor_wedding_ceremony.jpg",
+    alt: "Outdoor garden seating arranged for an intimate celebration",
+    aspect: "4 / 5",
+    shape: "rect",
+    caption: "EVENT-01 · Garden celebration setup (sample photo)",
+    tint: "sand",
+  },
 };
 
 export function getImageSlot(slotId: string): ImageSlot {

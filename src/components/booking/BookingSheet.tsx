@@ -104,7 +104,7 @@ export function BookingSheet({
         if (!next && step === 3) handleReset();
       }}
       title="Check dates & request stay"
-      description="Demo calculator — sample rates, no payment or real message sent."
+      description="Demo calculator with sample rates. No payment or real message is sent."
     >
       <div className="mb-6 flex items-center justify-between">
         <FurrowRule activeCount={step} />
@@ -278,7 +278,7 @@ export function BookingSheet({
 
       {step === 3 ? (
         <div className="space-y-5 rounded-[20px] border border-line bg-sand p-5">
-          <Badge variant="demo">Demo mode — nothing was sent</Badge>
+          <Badge variant="demo">Demo mode: nothing was sent</Badge>
           <div>
             <p className="text-xs font-semibold tracking-wide text-navy-500 uppercase">
               Sample reference

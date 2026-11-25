@@ -36,7 +36,7 @@ Single source of truth for decisions, state, and gotchas. Keep it short and curr
 - All 11 slots populated with open-license Wikimedia Commons sample photos via `remotePatterns` (`thumb.wikimedia.org`, `upload.wikimedia.org`). Real logos moved to `public/brand/logo-horizontal.jpg` and `public/brand/logo-stacked.jpg` and wired into `<Wordmark />`.
 
 ## Unslop log
-- 2026-11-25 unslopped: `/` SPA — zero banned phrases in grep check; replaced generic 3-icon feature grid with alternating editorial rows, badged all sample stays/menu/tariffs clearly, kept single dark section (`night`) and 3-furrow booking progress.
+- 2026-11-25 unslopped: `/` SPA (v2) — added `ScrollProgress` + `Reveal` tide motion (`motion/react`), consistent `1.75px` inline SVG icons, verified Boisar/NH 48 travel info, and `overflow-x-clip` + `min-w-0` responsive guards down to 320px; 0 banned phrases.
 
 ## Gotchas
 - `next/font/google` requires network access at `next build` time to fetch Fraunces, Nunito Sans, and Yellowtail.

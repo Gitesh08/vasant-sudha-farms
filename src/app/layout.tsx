@@ -25,7 +25,7 @@ const yellowtail = Yellowtail({
 });
 
 export const metadata: Metadata = {
-  title: "Vasant Sudha Farms — Nandgaon Beach, Boisar",
+  title: "Vasant Sudha Farms, Nandgaon Beach, Boisar",
   description:
     "Coastal farm resort at Nandgaon Beach, Boisar (Palghar, Maharashtra). Where Comfort Meets Nature.",
   robots: DEMO_MODE
@@ -51,7 +51,7 @@ export default function RootLayout({
             role="note"
             className="border-b border-line bg-sand px-4 py-1.5 text-center text-xs font-semibold text-navy-700"
           >
-            Demo concept — not the official website
+            Demo concept · Not the official website
           </div>
         ) : null}
         {children}

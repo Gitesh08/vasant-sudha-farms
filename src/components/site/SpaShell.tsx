@@ -1,16 +1,21 @@
 "use client";
 
+import { Calendar } from "lucide-react";
 import React, { useState } from "react";
 import { BookingSheet } from "@/components/booking/BookingSheet";
 import { WaveDivider } from "@/components/brand/WaveDivider";
-import { EveningsSection } from "@/components/site/EveningsSection";
-import { FarmSection } from "@/components/site/FarmSection";
+import { AmenitiesSection } from "@/components/site/AmenitiesSection";
+import { EventsSection } from "@/components/site/EventsSection";
+import { FoodSection } from "@/components/site/FoodSection";
 import { Footer } from "@/components/site/Footer";
 import { Hero } from "@/components/site/Hero";
 import { Nav } from "@/components/site/Nav";
+import { ReviewsSection } from "@/components/site/ReviewsSection";
 import { StaysSection } from "@/components/site/StaysSection";
+import { StorySection } from "@/components/site/StorySection";
 import { VisitSection } from "@/components/site/VisitSection";
 import { Button } from "@/components/ui/Button";
+import { ScrollProgress } from "@/components/ui/Reveal";
 import { DEMO_STAYS } from "@/content/site";
 
 export function SpaShell() {
@@ -24,31 +29,41 @@ export function SpaShell() {
 
   return (
     <>
+      <ScrollProgress />
       <Nav onOpenBooking={() => openBookingForStay()} />
 
-      <main>
+      <main className="overflow-x-clip">
         <Hero onOpenBooking={() => openBookingForStay()} />
         <WaveDivider variant="calm" className="bg-foam" />
-        <FarmSection />
-        <WaveDivider variant="swell" className="bg-sand" />
+        <StorySection />
+        <AmenitiesSection />
+        <WaveDivider variant="swell" className="bg-foam" />
         <StaysSection onSelectStay={(id) => openBookingForStay(id)} />
-        <WaveDivider variant="ripple" className="bg-foam" />
-        <EveningsSection />
-        <WaveDivider variant="calm" className="bg-sand" />
+        <FoodSection />
+        <ReviewsSection />
+        <EventsSection onEnquire={() => openBookingForStay()} />
+        <WaveDivider variant="ripple" className="bg-sand" />
         <VisitSection />
       </main>
 
       <Footer />
 
       {/* Sticky mobile availability bar */}
-      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-foam/95 px-4 py-2.5 shadow-[0_-4px_16px_rgba(11,34,54,0.08)] sm:hidden">
-        <div className="flex items-center justify-between gap-3">
-          <div className="leading-tight">
-            <p className="text-xs font-semibold text-navy-500">Sample stays</p>
-            <p className="text-sm font-bold tabular-nums text-navy-900">From ₹1,200 / night</p>
+      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-foam/95 px-4 py-2 shadow-[0_-4px_16px_rgba(11,34,54,0.08)] sm:hidden">
+        <div className="flex items-center justify-between gap-2">
+          <div className="min-w-0 leading-tight">
+            <p className="truncate text-xs font-bold text-navy-900">Vasant Sudha Farms</p>
+            <p className="truncate text-[11px] font-semibold text-navy-500">
+              Nandgaon Beach · Boisar
+            </p>
           </div>
-          <Button variant="sun" onClick={() => openBookingForStay()}>
-            Check dates
+          <Button
+            variant="sun"
+            onClick={() => openBookingForStay()}
+            className="min-h-[40px] shrink-0 px-4 py-2 text-xs"
+          >
+            <Calendar className="h-3.5 w-3.5" />
+            <span>Check dates</span>
           </Button>
         </div>
       </div>
