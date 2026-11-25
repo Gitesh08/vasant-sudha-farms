@@ -38,22 +38,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const demo = DEMO_MODE;
-
   return (
     <html
       lang="en"
       className={`${fraunces.variable} ${nunitoSans.variable} ${yellowtail.variable} scroll-smooth`}
     >
       <body className="min-h-screen bg-foam text-navy-900 antialiased">
-        {demo ? (
-          <div
-            role="note"
-            className="border-b border-line bg-sand px-4 py-1.5 text-center text-xs font-semibold text-navy-700"
-          >
-            Demo concept · Not the official website
-          </div>
-        ) : null}
         {children}
       </body>
     </html>

@@ -23,6 +23,19 @@ export function computeStayNights(params: {
   };
 }
 
+export function computeStayQuote(params: {
+  stay?: unknown;
+  checkIn: string;
+  checkOut: string;
+  guests?: number;
+}): { nights: number; total: number } {
+  const { nights } = computeStayNights(params);
+  return {
+    nights,
+    total: 0,
+  };
+}
+
 export function generateDemoRef(): string {
   const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
   let code = "";

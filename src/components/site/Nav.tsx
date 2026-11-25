@@ -26,14 +26,14 @@ export function Nav({ onOpenBooking }: NavProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-30 border-b border-line/80 bg-foam/90 backdrop-blur-md transition-all duration-200">
+    <header className="sticky top-0 z-30 border-b border-foam/10 bg-navy-950/80 backdrop-blur-md transition-all duration-200">
       <div className="mx-auto flex h-14 max-w-[1200px] items-center justify-between gap-4 px-4 sm:h-16 sm:px-6">
         <a
           href="#top"
           className="flex items-center rounded-lg transition-opacity hover:opacity-90 focus-visible:outline-offset-4"
           aria-label="Vasant Sudha Farms Home"
         >
-          <Wordmark />
+          <Wordmark tone="dark" />
         </a>
 
         <nav aria-label="Primary Navigation" className="hidden items-center gap-7 lg:flex">
@@ -41,7 +41,7 @@ export function Nav({ onOpenBooking }: NavProps) {
             <a
               key={link.href}
               href={link.href}
-              className="text-xs font-semibold tracking-wider text-navy-700/90 uppercase transition-colors hover:text-sun-600"
+              className="text-xs font-semibold tracking-wider text-foam/80 uppercase transition-colors hover:text-sun-400"
             >
               {link.label}
             </a>
@@ -61,7 +61,7 @@ export function Nav({ onOpenBooking }: NavProps) {
             type="button"
             aria-label="Open navigation menu"
             onClick={() => setMenuOpen(true)}
-            className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-line text-navy-700 transition-colors hover:bg-sand lg:hidden"
+            className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-foam/20 text-foam transition-colors hover:bg-foam/10 lg:hidden"
           >
             <Menu className="h-4 w-4" />
           </button>

@@ -9,7 +9,7 @@ export function Wordmark({ tone = "light" }: WordmarkProps) {
   return (
     <span
       className={`inline-flex items-center select-none ${
-        tone === "dark" ? "rounded-lg bg-foam px-2 py-0.5" : ""
+        tone === "dark" ? "rounded-xl bg-foam/95 px-2.5 py-1 shadow-sm" : ""
       }`}
     >
       <Image
