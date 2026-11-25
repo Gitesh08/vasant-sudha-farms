@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand — sampled estimates from docs/design.md; verify against public/brand/ once supplied */
+  --color-navy-900: #0b2236;
+  --color-navy-700: #0e4a72;
+  --color-navy-500: #2f6f98;
+  --color-sun-600: #b84f08;
+  --color-sun-500: #e8710f;
+  --color-sun-400: #f59b23;
+  --color-palm-600: #2e7d1f;
+  --color-palm-500: #4a9b2f;
+  --color-furrow-500: #1fa351;
+  --color-wave-600: #0f6f9c;
+  --color-wave-500: #1b8dbe;
+  --color-wave-300: #8ccbe3;
+
+  /* Surfaces */
+  --color-foam: #f4fafa;
+  --color-sand: #f6efe3;
+  --color-chikoo: #7a5230;
+  --color-night: #0a2a43;
+  --color-line: #d9e4e8;
+
+  /* Fonts */
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-nunito-sans), system-ui, sans-serif;
+  --font-script: var(--font-yellowtail), cursive;
+
+  /* Radii */
+  --radius-input: 14px;
+  --radius-card: 20px;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--color-foam);
+  color: var(--color-navy-900);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Focus ring per docs/design.md §6 */
+:focus-visible {
+  outline: 3px solid var(--color-wave-500);
+  outline-offset: 2px;
+}
+
+/* Fluid type helpers */
+.text-display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 2.2rem + 4.5vw, 7rem);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+}
+
+.text-display-l {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 1.8rem + 2.6vw, 4.5rem);
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+}
+
+.text-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 1.6rem + 1.4vw, 3rem);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+}
+
+.text-h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.35rem + 0.6vw, 1.875rem);
+  line-height: 1.2;
+}
+
+/* Subtle tide drift for hero waves */
+@keyframes wave-drift {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-8px);
+  }
+}
+
+.animate-wave-drift {
+  animation: wave-drift 10s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-wave-drift {
+    animation: none;
+  }
+}
